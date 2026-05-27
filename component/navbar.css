@@ -1,0 +1,16 @@
+.navbar ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--foreground);
+    font-weight: regular;
+    transition: color 0.2s ease-in-out;
+}
+
+.navbar a:hover {
+    color: var(--color-primary-500);
+}
