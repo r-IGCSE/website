@@ -1,0 +1,31 @@
+.navbar {
+    display: block;
+}
+
+.nav-list {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item {
+    display: inline-block;
+}
+
+.nav-link {
+    text-decoration: none;
+    transition: color 0.3s ease-out;
+    color: var(--foreground);
+}
+
+.nav-link:hover {
+    color: var(--color-primary-500);
+}
+
+.nav-link.active {
+    font-weight: semi-bold;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}

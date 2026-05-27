@@ -1,15 +1,29 @@
-import Link from "next/link";
+"use client";
+
+import type { NavItem } from "@/data/navdata";
 import { navData } from "@/data/navdata";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import "./navbar.css";
 
+export default function Navbar(): React.JSX.Element {
+    const pathname: string | null = usePathname();
+    const getActiveClass = (itemLink: string): string => {
+        const isExternal: boolean = itemLink.startsWith("http");
+        const isActive: boolean = !isExternal && (
+            itemLink === pathname || (itemLink !== "/" && pathname?.startsWith(itemLink))
+        );
+        
+        return isActive ? "nav-link active" : "nav-link";
+    };
 
-export default function Navbar() {
     return (
-        <nav>
-            <ul className="flex gap-4 list-none">
+        <nav className="navbar">
+            <ul className="nav-list">
                 {
-                    navData.map((item) => (
-                        <li key={item.id}>
-                            <Link href={item.link} className="no-underline text-foreground transition-colors duration-200 ease-in-out hover:text-primary-500">
+                    navData.map((item: NavItem) => (
+                        <li key={item.id} className="nav-item">
+                            <Link href={item.link} className={getActiveClass(item.link)}>
                                 {item.name}
                             </Link>
                         </li>
