@@ -2,7 +2,7 @@
 
 :root {
   --background: #0a0a0a;
-  --foreground: #FFFFFF;
+  --foreground: #ededed;
   --primary-50:#FAD3D1;
   --primary-100:#F9C2BF;
   --primary-200:#F59F99;
@@ -36,13 +36,13 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ffffff;
+    --foreground: #ededed;
   }
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --background: #FFFFFF;
+    --background: #ededed;
     --foreground: #0a0a0a;
   }
 }
