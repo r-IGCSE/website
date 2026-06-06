@@ -1,15 +1,52 @@
+"use client"
+
 import Image from "next/image";
 import Navbar from "./navbar";
+import { useState } from "react";
+import { motion, AnimatePresence } from 'motion/react'
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false)
   return (
-    <div className="sticky top-0 flex flex-row items-center justify-between px-6 py-4 min-w-full">
-      <div className="flex flex-row items-center gap-4 font-bold">
-        <Image src="/logo.png" alt="Logo" width={32} height={32} />
-        r/IGCSE
+    <>
+      <div className="z-20 sticky top-0 flex flex-row items-center justify-between px-6 py-4 min-w-full bg-background">
+        <div className="flex flex-row items-center gap-4 font-bold">
+          <Image src="/logo.png" alt="Logo" width={32} height={32} />
+          r/IGCSE
+        </div>
+        <div className="not-md:hidden">
+          <Navbar/>
+        </div>
+        <div>
+          <button className="md:hidden transition-colors hover:text-primary-500 hover:cursor-pointer" onClick={() => setIsOpen(!isOpen)}>☰</button>
+        </div> {/* div to center the navbar */}
       </div>
-      <Navbar />
-      <div></div> {/* Empty div to center the navbar */}
-    </div>
+      <AnimatePresence>
+        {
+          isOpen && (
+            <>
+              <motion.div 
+                initial={{ opacity:0 }}
+                animate={{ opacity:0.5 }}
+                exit={{ opacity:0 }}
+                transition={{ duration:0.15 }}
+                className="fixed inset-0 bg-black md:hidden"
+                onClick={() => setIsOpen(false)}
+              >
+              </motion.div>
+              <motion.div
+                initial={{ y:'-100%' }}
+                animate={{ y:0 }}
+                exit={{ y:'-100%' }}
+                transition={{ duration:0.15 }}
+                className="top-15 p-4 fixed w-full bg-background z-10 md:hidden"
+              >
+                <Navbar/>
+              </motion.div>
+            </>
+          )
+        }
+      </AnimatePresence>
+    </>
   );
 }
