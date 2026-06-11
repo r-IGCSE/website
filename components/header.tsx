@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Navbar from "./navbar";
 import { useState } from "react";
-import { motion, AnimatePresence } from 'motion/react'
+import styles from "./header.module.css"
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,7 +21,11 @@ export default function Header() {
           <button className="md:hidden transition-colors hover:text-primary-500 hover:cursor-pointer" onClick={() => setIsOpen(!isOpen)}>☰</button>
         </div> {/* div to center the navbar */}
       </div>
-      <AnimatePresence>
+      <div className={`${isOpen ? 'opacity-50 visible' : 'opacity-0 invisible'} bg-black inset-0 fixed transition-all duration-300`} onClick={() => setIsOpen(false)}></div>
+      <div className={`top-15 p-4 fixed w-full bg-background z-10 md:hidden ${isOpen ? styles.open : styles.dropdown}`}>
+        <Navbar/>
+      </div>
+      {/* <AnimatePresence>
         {
           isOpen && (
             <>
@@ -46,7 +50,7 @@ export default function Header() {
             </>
           )
         }
-      </AnimatePresence>
+      </AnimatePresence> */}
     </>
   );
 }
