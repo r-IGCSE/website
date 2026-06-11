@@ -1,35 +1,35 @@
 @import "tailwindcss";
 
 :root {
-  --background: #121010;
-  --foreground: #FFFFFF;
-  --color-primary-50:#FAD3D1;
-  --color-primary-100:#F9C2BF;
-  --color-primary-200:#F59F99;
-  --color-primary-300:#F17B74;
-  --color-primary-400:#EE584F;
-  --color-primary-500:#EA352A;
-  --color-primary-600:#C81E14;
-  --color-primary-700:#95160F;
-  --color-primary-800:#620F0A;
-  --color-primary-900:#2F0705;
-  --color-primary-950:#150302;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary-50:#FAD3D1;
+  --primary-100:#F9C2BF;
+  --primary-200:#F59F99;
+  --primary-300:#F17B74;
+  --primary-400:#EE584F;
+  --primary-500:#EA352A;
+  --primary-600:#C81E14;
+  --primary-700:#95160F;
+  --primary-800:#620F0A;
+  --primary-900:#2F0705;
+  --primary-950:#150302;
 }
 
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary-50: var(--color-primary-50);
-  --color-primary-100: var(--color-primary-100);
-  --color-primary-200: var(--color-primary-200); 
-  --color-primary-300: var(--color-primary-300);
-  --color-primary-400: var(--color-primary-400);
-  --color-primary-500: var(--color-primary-500);
-  --color-primary-600: var(--color-primary-600);
-  --color-primary-700: var(--color-primary-700);
-  --color-primary-800: var(--color-primary-800);
-  --color-primary-900: var(--color-primary-900);
-  --color-primary-950: var(--color-primary-950);
+  --color-primary-50: var(--primary-50);
+  --color-primary-100: var(--primary-100);
+  --color-primary-200: var(--primary-200); 
+  --color-primary-300: var(--primary-300);
+  --color-primary-400: var(--primary-400);
+  --color-primary-500: var(--primary-500);
+  --color-primary-600: var(--primary-600);
+  --color-primary-700: var(--primary-700);
+  --color-primary-800: var(--primary-800);
+  --color-primary-900: var(--primary-900);
+  --color-primary-950: var(--primary-950);
   --font-sans: var(--font-dm-sans);
 }
 
@@ -37,6 +37,13 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ededed;
+    --foreground: #0a0a0a;
   }
 }
 

@@ -1,0 +1,12 @@
+.dropdown {
+    transition: transform 0.15s, opacity 0.15s;
+    transform: translateY(-100%);
+    opacity:0;
+    pointer-events: none;
+}
+
+.open {
+    transition: transform 0.15s, opacity 0.15s;
+    transform: translateY(0);
+    opacity: 1;
+}

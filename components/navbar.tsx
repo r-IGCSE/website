@@ -9,7 +9,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <ul className="flex flex-row items-center justify-center gap-8">
+    <ul className="flex not-md:items-start not-md:flex-col items-center justify-center gap-8">
       {navItems.map((item: NavItem) => {
         const isActive = pathname === item.href;
 
